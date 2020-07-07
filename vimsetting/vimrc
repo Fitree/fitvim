@@ -1,0 +1,93 @@
+" Basic options
+set number
+set nobackup
+set autochdir
+set hlsearch
+set fileencodings=utf-8,euc-kr,cp949
+set encoding=utf-8
+syntax on
+
+" Indent, tab
+set autoindent
+set smartindent
+inoremap # X#
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2
+
+" Save, quit
+map <Space>q <ESC>:q<CR>
+map <Space>w <ESC>:wa<CR>
+
+" Navigation, editing
+map <S-RIGHT> <END>
+imap <S-RIGHT> <END>
+map <S-LEFT> <HOME>
+imap <S-LEFT> <HOME>
+map <S-DOWN> <C-D>
+imap <S-DOWN> <ESC><C-D>
+map <S-UP> <C-U>
+imap <S-UP> <ESC><C-U>
+nmap <C-RIGHT> <C-w>l
+nmap <C-LEFT> <C-w>h
+nmap <C-UP> <C-w>k
+nmap <C-DOWN> <C-w>j
+
+" Plugin
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'The-NERD-tree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'neomake/neomake'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'dkarter/bullets.vim'
+Plugin 'davidhalter/jedi-vim'
+call vundle#end()
+
+" Use 24-bit (true-color) mode.
+" The code below is copied from
+" onedark github page: https://github.com/joshdick/onedark.vim
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+" Theme
+set cursorline
+colorscheme onedark
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
+
+" Neomake syntax check
+let g:neomake_python_enabled_makers = ['python']
+try
+    call neomake#configure#automake('w')
+catch
+endtry
+
+" NERDTree
+nmap <Space>f :NERDTreeToggle<CR>
+
+" Buffer control
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+nmap { :bprevious!<Enter>
+nmap } :bnext!<Enter>
+nmap <Space>db :bp <BAR> bd #<Enter>
+
+" Run python script
+map <Space>r :w !clear;python %<CR>
+
+" Gitgutter
+autocmd BufWritePost * GitGutter
+
+" JEDI-VIM
+let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = 0
