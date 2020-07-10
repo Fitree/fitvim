@@ -35,17 +35,16 @@ nmap <C-UP> <C-w>k
 nmap <C-DOWN> <C-w>j
 
 " Plugin
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'The-NERD-tree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'neomake/neomake'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dkarter/bullets.vim'
-Plugin 'davidhalter/jedi-vim'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'neomake/neomake'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'dkarter/bullets.vim'
+Plug 'davidhalter/jedi-vim'
+call plug#end()
+
 
 " Use 24-bit (true-color) mode.
 " The code below is copied from

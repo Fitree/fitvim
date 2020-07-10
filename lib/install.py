@@ -30,12 +30,14 @@ def installFitvim(dir_home, p_vim, p_vimrc):
     shutil.copytree(p_vim, dir_home/'.vim')
     shutil.copy(p_vimrc, dir_home/'.vimrc')
 
-    os.system('git clone https://github.com/VundleVim/Vundle.vim.git '+
-        str(dir_home/'.vim'/'bundle'/'Vundle.vim'))
-    os.system('vim +PluginInstall +qall')
+    #os.system('git clone https://github.com/VundleVim/Vundle.vim.git '+
+    #    str(dir_home/'.vim'/'bundle'/'Vundle.vim'))
+    os.system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+    os.system('vim +PlugInstall +qall')
 
-    p_gitgutter = (dir_home/'.vim'/'bundle').glob('**/plugin/gitgutter.vim')
+    p_gitgutter = next((dir_home/'.vim'/'plugged').glob('**/plugin/gitgutter.vim'))
     os.system('echo "autocmd! gitgutter CursorHold,CursorHoldI" >> '+
-        str(next(p_gitgutter)))
+        str(p_gitgutter))
     
     print('\nInstallation done!')
