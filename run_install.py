@@ -4,7 +4,7 @@ from lib import install
 
 
 # Logo
-utils.printLogo('2.1')
+utils.printLogo('2.2')
 
 # Home path
 dir_home = Path.home()
