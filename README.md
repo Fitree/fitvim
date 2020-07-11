@@ -18,6 +18,27 @@ let g:jedi#show_call_signatures = 0
 * Curl
 * Python 3
 
+## Recommendation
+* I recommend you to use neovim with python module for the full feature.
+
+### Neovim installation
+For Ubuntu
+~~~
+sudo apt install neovim
+~~~
+For OsX
+~~~
+brew install neovim
+~~~
+
+### Neovim python module installation
+~~~
+pip install neovim
+~~~
+* Since this method uses python package manager **pip** to install python module for neovim, you should do this again when you reinstall or change python virtual envirionment (e.g. via pyenv).
+* There are other ways to instll python moduel for neovim. See https://github.com/neovim/neovim/wiki/Installing-Neovim.
+
+
 ## Installation
 1. Clone repository
 ~~~
@@ -30,6 +51,13 @@ cd fitvim
 python3 run_install.py
 ~~~
 
+3. (For neovim users) Use vim setting files as neovim setting.
+Add follow lines in your neovim **init.vim** file (see original documnet: https://neovim.io/doc/user/nvim.html#nvim-from-vim).
+~~~
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vimrc
+~~~
 
 # Shortcuts
 * **A-B** means press **A** and **B** sequentially.
