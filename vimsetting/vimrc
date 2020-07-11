@@ -67,6 +67,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = '/'
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = '/'
+hi Normal ctermbg=None guibg=None
 
 " Neomake syntax check
 let g:neomake_python_enabled_makers = ['python']
