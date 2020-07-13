@@ -14,3 +14,6 @@ let g:jedi#show_call_signatures = 0
 * Automatic function call signature pop up (JEDI-VIM feature) is enabled as a default. Shows function call signature on status line.
 * Colorscheme tuning.
 * Change vim plugin manager from **Vundle** to **Plug**.
+
+# 20200713
+* Automatic function call signature pop up (JEDI-VIM feature) is disabled. It's still laggy.
