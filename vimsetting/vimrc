@@ -43,6 +43,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'dkarter/bullets.vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'yggdroot/indentline'
 call plug#end()
 
 
@@ -94,4 +95,7 @@ autocmd BufWritePost * GitGutter
 " JEDI-VIM
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 0
-set noshowmode 
+set noshowmode
+
+" Indentline
+let g:indentLine_char = '▏'
