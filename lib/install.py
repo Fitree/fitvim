@@ -30,7 +30,7 @@ def installFitvim(dir_home, p_vim, p_vimrc):
     shutil.copytree(p_vim, dir_home/'.vim')
     shutil.copy(p_vimrc, dir_home/'.vimrc')
 
-    os.system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    os.system('curl -fLo ~/.vim/autoload/plug.vim --create-dirs\
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
     os.system('vim +PlugInstall +qall')
 
