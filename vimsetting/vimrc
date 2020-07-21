@@ -44,6 +44,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dkarter/bullets.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'yggdroot/indentline'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -68,6 +69,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+let g:webdevicons_enable = 1
 
 " Neomake syntax check
 let g:neomake_python_enabled_makers = ['python']
@@ -78,6 +80,19 @@ endtry
 
 " NERDTree
 nmap <Space>f :NERDTreeToggle<CR>
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+
+highlight! link NERDTreeFlags NERDTreeDir
+function! NERDTreeRefresh()
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
+endfunction
+
+autocmd BufEnter * call NERDTreeRefresh()
 
 " Buffer control
 let g:airline#extensions#tabline#enabled = 1
