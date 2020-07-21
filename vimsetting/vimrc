@@ -87,7 +87,7 @@ nmap } :bnext!<Enter>
 nmap <Space>db :bp <BAR> bd #<Enter>
 
 " Run python script
-map <Space>r :w !clear;python %<CR>
+map <Space>r :w !python %<CR>
 
 " Gitgutter
 autocmd BufWritePost * GitGutter
