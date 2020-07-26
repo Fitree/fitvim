@@ -64,6 +64,7 @@ source ~/.vimrc
 * **space-d-b:** delete current buffer
 * **space-r:** run current python script
 ## JEDI-VIM features
+* **crtl-n**: JEDI-VIM's autocomplete
 * **\\-g:** typical goto function
 * **\\-d:** goto definition (follow identifier as far as possible, includes imports and statements)
 * **\\-s:** goto (typing) stub
@@ -71,9 +72,16 @@ source ~/.vimrc
 * **\\-r:** renaming
 * **\\-n:** usages(shows all the usages of a name)
 * Open module, e.g. :Pyimport os (opens the os module)
-
-In FITVIM, autocompletion function of jedi-vim is disabled. If you want jedi-vim autocompletion, erase follow line in .vimrc file.
-~~~
-let g:jedi#completions_enabled = 0
-~~~
 For more information about jedi-vim, see: https://github.com/davidhalter/jedi-vim
+
+# Included plugins
+* nerdtree
+* vim-airline
+* neomake
+* vim-gitgutter
+* vim-fugitive
+* bullets.vim
+* jedi-vim
+* indentline
+* vim-devicons
+* vim-commentary
