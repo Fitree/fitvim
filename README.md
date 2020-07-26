@@ -88,3 +88,6 @@ For more information about jedi-vim, see: https://github.com/davidhalter/jedi-vi
 * jedi-vim
 * vim-devicons
 * vim-commentary
+
+# Contact
+Open Kakaotalk: https://open.kakao.com/o/gFWcVjnc
