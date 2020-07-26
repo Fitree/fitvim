@@ -20,15 +20,15 @@ autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2
 map <Space>q <ESC>:q<CR>
 map <Space>w <ESC>:wa<CR>
 
-" Navigation, editing
+" Navigation
 map <S-RIGHT> <END>
-imap <S-RIGHT> <END>
+imap <S-RIGHT> <END><ESC>
 map <S-LEFT> <HOME>
 imap <S-LEFT> <HOME>
-map <S-DOWN> <C-D>
-imap <S-DOWN> <ESC><C-D>
-map <S-UP> <C-U>
-imap <S-UP> <ESC><C-U>
+map <S-DOWN> <C-d>
+imap <S-DOWN> <ESC><C-d>
+map <S-UP> <C-u>
+imap <S-UP> <ESC><C-u>
 nmap <C-RIGHT> <C-w>l
 nmap <C-LEFT> <C-w>h
 nmap <C-UP> <C-w>k
@@ -45,6 +45,7 @@ Plug 'dkarter/bullets.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'yggdroot/indentline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 
@@ -69,6 +70,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+set noshowmode
 
 " Neomake syntax check
 let g:neomake_python_enabled_makers = ['python']
@@ -101,9 +103,10 @@ map <Space>r :w !python %<CR>
 autocmd BufWritePost * GitGutter
 
 " JEDI-VIM
-let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 0
-set noshowmode
+let g:jedi#completions_command = "<C-n>"
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
 
 " Indentline
 let g:indentLine_char = '▏'
