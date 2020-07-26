@@ -63,6 +63,10 @@ source ~/.vimrc
 * **}:** move to the right buffer
 * **space-d-b:** delete current buffer
 * **space-r:** run current python script
+## Visual mode
+* **gcc**: comment (or uncomment) out one line
+* **gc**: commetn (or uncomment) out visual block
+* **gcgc**: uncomment the current and adjacent commented lines.
 ## JEDI-VIM features
 * **crtl-n**: JEDI-VIM's autocomplete
 * **\\-g:** typical goto function
@@ -82,6 +86,5 @@ For more information about jedi-vim, see: https://github.com/davidhalter/jedi-vi
 * vim-fugitive
 * bullets.vim
 * jedi-vim
-* indentline
 * vim-devicons
 * vim-commentary
