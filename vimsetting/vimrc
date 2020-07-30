@@ -1,4 +1,5 @@
 " Basic options
+set mouse=a
 set number
 set nobackup
 set autochdir
@@ -16,24 +17,6 @@ set softtabstop=4
 set expandtab
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2
 
-" Save, quit
-map <Space>q <ESC>:q<CR>
-map <Space>w <ESC>:wa<CR>
-
-" Navigation
-map <S-RIGHT> <END>
-imap <S-RIGHT> <END><ESC>
-map <S-LEFT> <HOME>
-imap <S-LEFT> <HOME>
-map <S-DOWN> <C-d>
-imap <S-DOWN> <ESC><C-d>
-map <S-UP> <C-u>
-imap <S-UP> <ESC><C-u>
-nmap <C-RIGHT> <C-w>l
-nmap <C-LEFT> <C-w>h
-nmap <C-UP> <C-w>k
-nmap <C-DOWN> <C-w>j
-
 " Plugin
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
@@ -45,8 +28,9 @@ Plug 'dkarter/bullets.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
+Plug 'liuchengxu/vim-which-key'
+Plug 'jlanzarotta/bufexplorer'
 call plug#end()
-
 
 " Use 24-bit (true-color) mode.
 " The code below is copied from
@@ -69,6 +53,8 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 set noshowmode
 
 " Neomake syntax check
@@ -79,7 +65,6 @@ catch
 endtry
 
 " NERDTree
-nmap <Space>f :NERDTreeToggle<CR>
 let NERDTreeMapUpdirKeepOpen = "u"
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let NERDTreeDirArrowExpandable = ""
@@ -87,16 +72,6 @@ let NERDTreeDirArrowCollapsible = ""
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = " "
 highlight! link NERDTreeFlags NERDTreeDir
-
-" Buffer control
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-nmap { :bprevious!<Enter>
-nmap } :bnext!<Enter>
-nmap <Space>db :bp <BAR> bd #<Enter>
-
-" Run python script
-map <Space>r :w !python %<CR>
 
 " Gitgutter
 autocmd BufWritePost * GitGutter
@@ -106,3 +81,56 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#completions_command = "<C-n>"
 let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal completeopt-=preview
+
+" Shortcuts
+map <S-RIGHT> <END>
+imap <S-RIGHT> <END>
+map <S-LEFT> <HOME>
+imap <S-LEFT> <HOME>
+
+map <S-DOWN> <C-d>
+imap <S-DOWN> <ESC><C-d>
+map <S-UP> <C-u>
+imap <S-UP> <ESC><C-u>
+
+nmap <C-RIGHT> <C-w>l
+nmap <C-LEFT> <C-w>h
+nmap <C-UP> <C-w>k
+nmap <C-DOWN> <C-w>j
+
+nmap { :bprevious!<Enter>
+nmap } :bnext!<Enter>
+
+let g:which_key_map =  {}
+let g:which_key_map['q'] = [':qa', 'quit-vim']
+let g:which_key_map['f'] = {
+      \ 'name' : '+file' ,
+      \ 'n' : [':NERDTreeToggle', 'toggle-NERDTree'],
+      \ 's' : [':w', 'save-current-buffer'],
+      \ 'S' : [':wa', 'save-all-buffers'],
+      \ 'd' : [':e ~/.vimrc', 'open-vimrc'],
+      \ }
+let g:which_key_map['w'] = {
+      \ 'name' : '+windows',
+      \ 'd' : ['<C-W>c', 'delete-window'],
+      \ 's' : ['<C-W>s', 'split-window-below'],
+      \ 'v' : ['<C-W>v', 'split-window-right'],
+      \ '=' : ['<C-W>=', 'balance-window'],
+      \ }
+let g:which_key_map['b'] = {
+      \ 'name' : '+buffer',
+      \ 'd' : ['bd', 'delete-buffer'],
+      \ 'b' : [':BufExplorer', 'open-buffer-explorer'],
+      \ 'n' : [':enew', 'new-empty-buffer'],
+      \ }
+let g:which_key_map['c'] = {
+      \ 'name' : '+code(python)',
+      \ 'd' : [':call jedi#goto()', 'goto'],
+      \ 'g' : [':call jedi#goto_assignments()', 'goto-assignments'],
+      \ 'k' : [':call jedi#show_documentation()', 'show-documentation'],
+      \ 'r' : [':call jedi#rename()', 'rename-variables'],
+      \ }
+
+call which_key#register('<Space>', "g:which_key_map")
+let g:mapleader = "\<Space>"
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
