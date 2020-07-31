@@ -48,7 +48,7 @@ source ~/.vimrc
 ~~~
 
 # Shortcuts
-Just press SPACE and fitvim displays available keybindings in popup except basic shortcusts (see below).
+Just press **SPACE** and fitvim displays available keybindings in popup except basic shortcusts (see below).
 ## Basic shortcuts
 * **shift+left, rithgt:** move to the end of the line
 * **shift+up, down:** half page scroll
