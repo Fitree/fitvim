@@ -24,7 +24,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'neomake/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'dkarter/bullets.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
@@ -65,6 +64,7 @@ catch
 endtry
 
 " NERDTree
+let NERDTreeMinimalUI=1
 let NERDTreeMapUpdirKeepOpen = "u"
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let NERDTreeDirArrowExpandable = ""
@@ -74,6 +74,7 @@ let g:WebDevIconsNerdTreeBeforeGlyphPadding = " "
 highlight! link NERDTreeFlags NERDTreeDir
 
 " Gitgutter
+let g:gitgutter_map_keys = 0
 autocmd BufWritePost * GitGutter
 
 " JEDI-VIM
@@ -106,7 +107,7 @@ let g:which_key_map =  {}
 let g:which_key_map['q'] = [':qa', 'quit-vim']
 let g:which_key_map['f'] = {
       \ 'name' : '+file' ,
-      \ 'n' : [':NERDTreeToggle', 'toggle-NERDTree'],
+      \ 't' : [':NERDTreeToggle', 'toggle-NERDTree'],
       \ 's' : [':w', 'save-current-buffer'],
       \ 'S' : [':wa', 'save-all-buffers'],
       \ 'd' : [':e ~/.vimrc', 'open-vimrc'],
@@ -121,7 +122,6 @@ let g:which_key_map['w'] = {
 let g:which_key_map['b'] = {
       \ 'name' : '+buffer',
       \ 'd' : ['bd', 'delete-buffer'],
-      \ 'b' : [':BufExplorer', 'open-buffer-explorer'],
       \ 'n' : [':enew', 'new-empty-buffer'],
       \ }
 let g:which_key_map['c'] = {
@@ -131,10 +131,10 @@ let g:which_key_map['c'] = {
       \ 'k' : [':call jedi#show_documentation()', 'show-documentation'],
       \ 'r' : [':call jedi#rename()', 'rename-variables'],
       \ }
-
-if filereadable($HOME."/.vim/plugged/vim-which-key")
+try
     call which_key#register('<Space>', "g:which_key_map")
-endif
+catch
+endtry
 let g:mapleader = "\<Space>"
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
