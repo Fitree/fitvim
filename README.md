@@ -89,8 +89,9 @@ Just press **SPACE** and fitvim displays available keybindings in popup except b
 * neomake
 * vim-gitgutter
 * vim-fugitive
-* bullets.vim
 * jedi-vim
 * indentline
 * vim-devicons
 * vim-commentary
+* vim-which-key
+* bufexplorer
