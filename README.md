@@ -48,7 +48,7 @@ source ~/.vimrc
 ~~~
 
 # Shortcuts
-Just press <SPC> and fitvim displays available keybindings in popup except basic shortcusts (see below).
+Just press SPACE and fitvim displays available keybindings in popup except basic shortcusts (see below).
 ## Basic shortcuts
 * **shift+left, rithgt:** move to the end of the line
 * **shift+up, down:** half page scroll
@@ -56,7 +56,7 @@ Just press <SPC> and fitvim displays available keybindings in popup except basic
 * **{:** move to the left buffer
 * **}:** move to the right buffer
 * **crtl-n**: JEDI-VIM's autocomplete
-## <SPC>-related shortcuts
+## SPACE-related shortcuts
 * **<SPC>-b**: buffer
    * **-d**: delete-buffer
    * **-e**: BufExplorer
