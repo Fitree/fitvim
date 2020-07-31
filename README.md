@@ -48,31 +48,40 @@ source ~/.vimrc
 ~~~
 
 # Shortcuts
-* **A-B** means press **A** and **B** sequentially.
-* **A+B** means press **B** while holding **A**.
-## Common
+Just press <SPC> and fitvim displays available keybindings in popup except basic shortcusts (see below).
+## Basic shortcuts
 * **shift+left, rithgt:** move to the end of the line
 * **shift+up, down:** half page scroll
-    * This shortcut changes mode to normal mode only in insert mode.
-## Normal mode
-* **space-q:** save all buffers and quit vim
-* **space-w:** save all buffers
-* **ctrl+arrow:** move between windows
-* **space+f:** toggle filetree
+* **ctrl+arrow:** navigate between windows
 * **{:** move to the left buffer
 * **}:** move to the right buffer
-* **space-d-b:** delete current buffer
-* **space-r:** run current python script
-## JEDI-VIM features
 * **crtl-n**: JEDI-VIM's autocomplete
-* **\\-g:** typical goto function
-* **\\-d:** goto definition (follow identifier as far as possible, includes imports and statements)
-* **\\-s:** goto (typing) stub
-* **K:** show documentation/Pydoc K (shows a popup with assignments)
-* **\\-r:** renaming
-* **\\-n:** usages(shows all the usages of a name)
-* Open module, e.g. :Pyimport os (opens the os module)
-For more information about jedi-vim, see: https://github.com/davidhalter/jedi-vim
+## <SPC>-related shortcuts
+* **<SPC>-b**: buffer
+   * **-d**: delete-buffer
+   * **-e**: BufExplorer
+   * **-n**: new-empty-buffer
+   * **-s**: BufExplorerHorizontalSplit
+   * **-t**: ToggleBufExplorer
+   * **-v**: BufexplorerVerticalSplit
+* **<SPC>-c**: code(python)
+   * **-d**: goto
+   * **-g**: goto-assignments
+   * **-k**: show-documentation
+   * **-n**: usages
+   * **-r**: rename-variables
+   * **-s**: stubs
+* **<SPC>-f**: file
+   * **-d**: open-vimrc
+   * **-s**: save-current-buffer
+   * **-S**: save-all-buffers
+   * **-t**: toggle-NERDTree
+* **<SPC>-w**: window
+   * **-=**: balance-window
+   * **-d**: delete-window
+   * **-s**: split-window-below
+   * **-v**: split-window-right
+* **<SPC>-q**: quti vi
 
 # Included plugins
 * nerdtree
