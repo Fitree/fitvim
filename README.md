@@ -57,31 +57,31 @@ Just press **SPACE** and fitvim displays available keybindings in popup except b
 * **}:** move to the right buffer
 * **crtl-n**: JEDI-VIM's autocomplete
 ## SPACE-related shortcuts
-* **<SPC>-b**: buffer
+* **SPACE-b**: buffer
    * **-d**: delete-buffer
    * **-e**: BufExplorer
    * **-n**: new-empty-buffer
    * **-s**: BufExplorerHorizontalSplit
    * **-t**: ToggleBufExplorer
    * **-v**: BufexplorerVerticalSplit
-* **<SPC>-c**: code(python)
+* **SPACE-c**: code(python)
    * **-d**: goto
    * **-g**: goto-assignments
    * **-k**: show-documentation
    * **-n**: usages
    * **-r**: rename-variables
    * **-s**: stubs
-* **<SPC>-f**: file
+* **SPACE-f**: file
    * **-d**: open-vimrc
    * **-s**: save-current-buffer
    * **-S**: save-all-buffers
    * **-t**: toggle-NERDTree
-* **<SPC>-w**: window
+* **SPACE-w**: window
    * **-=**: balance-window
    * **-d**: delete-window
    * **-s**: split-window-below
    * **-v**: split-window-right
-* **<SPC>-q**: quti vi
+* **SPACE-q**: quti vi
 
 # Included plugins
 * nerdtree
