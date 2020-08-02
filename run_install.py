@@ -3,9 +3,6 @@ from lib import utils
 from lib import install
 
 
-# Logo
-utils.printLogo('1.0.0')
-
 # Home path
 dir_home = Path.home()
 p_vim = Path('./vimsetting/vim')
