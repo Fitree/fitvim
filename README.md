@@ -76,6 +76,7 @@ source ~/.vimrc
 * **\\-r:** renaming
 * **\\-n:** usages(shows all the usages of a name)
 * Open module, e.g. :Pyimport os (opens the os module)
+
 For more information about jedi-vim, see: https://github.com/davidhalter/jedi-vim
 
 # Included plugins
